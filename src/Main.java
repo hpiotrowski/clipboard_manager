@@ -3,14 +3,13 @@ public class Main {
         ClipboardRadar radar = new ClipboardRadar();
         radar.loadHistory();
 
-
-
         ClipboardWindow gui = new ClipboardWindow();
         gui.showWindow(radar);
         gui.showHistory(radar.history);
-        radar.connectGui(gui);
-        Thread watekRadaru = new Thread(() -> radar.startScanning());
-        watekRadaru.start();
 
+        radar.connectGui(gui);
+
+        Thread radarThread = new Thread(() -> radar.startScanning());
+        radarThread.start();
     }
 }
