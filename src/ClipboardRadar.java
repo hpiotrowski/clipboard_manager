@@ -32,7 +32,7 @@ public class ClipboardRadar {
 
     }
     public void recentClips() {
-        for (int i = 0; i < history.size(); i++) {
+        for (int i = history.size()-1; i >=0; i--) {
             System.out.println(i + ": " + history.get(i));
         }
     }
