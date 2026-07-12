@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class ClipboardRadar {
     ArrayList<String> history=new ArrayList<>();
+    ClipboardWindow gui;
 
     public void startScanning(){
         System.out.println("App running");
@@ -27,6 +28,9 @@ public class ClipboardRadar {
                         PrintWriter saveFile=new PrintWriter(new FileWriter("clip.txt",true));
                         saveFile.println(currentText);
                         saveFile.close();
+                        if(gui !=null){
+                            gui.showHistory(history);
+                        }
                     }
                 }
 
@@ -72,6 +76,9 @@ public class ClipboardRadar {
         }
 
 
+    }
+    public void connectGui(ClipboardWindow gui){
+        this.gui=gui;
     }
 
 
