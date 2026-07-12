@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ClipboardRadar mojRadar = new ClipboardRadar();
-        Thread radarThread=new Thread(()-> mojRadar.startScanning());
+        ClipboardRadar myRadar = new ClipboardRadar();
+        myRadar.loadHistory();
+        Thread radarThread=new Thread(()-> myRadar.startScanning());
         radarThread.start();
 
         Scanner inputScanner=new Scanner(System.in);
@@ -11,8 +12,13 @@ public class Main {
         while(true){
             String inputCommand=inputScanner.nextLine();
             if (inputCommand.equals("history")){
-                mojRadar.recentClips();
+                myRadar.recentClips();
+            }
+            if(inputCommand.equals("clear")){
+                myRadar.clearHistory();
+
             }
         }
     }
+
 }
