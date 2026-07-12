@@ -46,7 +46,14 @@ public class ClipboardRadar {
     }
     public void clearHistory(){
         history.clear();
-        System.out.println("history has been cleaned");
+        try{
+            PrintWriter cleaner=new PrintWriter(new FileWriter("clip.txt"));
+            cleaner.print("");
+            cleaner.close();
+            System.out.println("history has been cleaned");
+        }catch(Exception e){
+            System.out.println("error: "+e);
+        }
     }
     public void loadHistory(){
         try{

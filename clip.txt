@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        // 1. Odpalamy nasz silnik w tle (tak jak do tej pory)
+        ClipboardRadar radar = new ClipboardRadar();
+        radar.loadHistory();
+        Thread watekRadaru = new Thread(() -> radar.startScanning());
+        watekRadaru.start();
+
+        // 2. Odpalamy nasze nowe GUI!
+        ClipboardWindow gui = new ClipboardWindow();
+        gui.pokazOkienko();
+    }
+}
